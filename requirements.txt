@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu116
+torch==1.12.1+cu116
+diffusers
+transformers
+scipy
+ftfy
+datasets
+gradio==3.5
+accelerate
+ray[serve]
