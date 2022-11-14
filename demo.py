@@ -2,7 +2,7 @@ from contextlib import nullcontext
 import gradio as gr
 import torch
 from torch import autocast
-from diffusers import StableDiffusionPipeline
+from diffusers import StableDiffusionPipeline, StableDiffusionOnnxPipeline
 from ray.serve.gradio_integrations import GradioServer
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -216,7 +216,9 @@ with block:
            """
         )
 
-#block.launch()
+# without rayserve
+# block.launch()
 
-io = block
-app = GradioServer.options(num_replicas=2, ray_actor_options={"num_cpus": 6.0, "num_gpus" : 1.0}).bind(io)
+# With rayserve
+app = GradioServer.options(num_replicas=torch.cuda.device_count(), ray_actor_options={"num_gpus" : 1.0}).bind(block)
+
