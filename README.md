@@ -17,9 +17,7 @@ serve run demo:app
 ```
 
 
-Without lambda stack
-```
-Setup and run:
+Without lambda stack:
 ```
 git clone https://github.com/eolecvk/text-to-naruto.git
 cd text-to-naruto
