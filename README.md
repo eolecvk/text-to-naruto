@@ -5,8 +5,7 @@ cd text-to-naruto
 python3 -m pip install --upgrade pip
 python3 -m pip install \
     gradio==3.5 \
-    ray[serve]
-python3 -m pip install \
+    ray[serve] \
     diffusers \
     transformers \
     scipy \
